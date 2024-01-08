@@ -2,6 +2,13 @@ import pandas as pd
 import openai
 from dotenv import load_dotenv
 import os
+import sys
+
+if len(sys.argv) < 2:
+    print("Error: No file path provided")
+    sys.exit(1)
+
+file_path = sys.argv[1]
 
 # Load the environment variables
 load_dotenv()
@@ -36,7 +43,7 @@ def categorize_transaction(row, categories):
 
 pd.set_option('display.max_rows', 100)
 # Load the CSV file
-df = pd.read_csv('export.csv', delimiter=';')  # Adjust delimiter if needed
+df = pd.read_csv(file_path, delimiter=';')  # Adjust delimiter if needed
 transactions = df[['Summa', 'Maksupäivä', 'Maksaja', 'Saajan nimi', 'Tapahtumalaji']]  # Ensure 'Tapahtumalaji' is included
 
 # Define your categories
@@ -62,8 +69,7 @@ categories = [
 ]
 
 # Apply categorization
-transactions.loc[:, 'Category'] = transactions.apply(lambda row: categorize_transaction(row, categories), axis=1)
-
+transactions['Category'] = transactions.apply(lambda row: categorize_transaction(row, categories), axis=1)
 
 # Output the categorized data
 print(transactions)  # For testing, show first few rows
