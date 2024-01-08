@@ -62,7 +62,8 @@ categories = [
 ]
 
 # Apply categorization
-transactions['Category'] = transactions.apply(lambda row: categorize_transaction(row, categories), axis=1)
+transactions.loc[:, 'Category'] = transactions.apply(lambda row: categorize_transaction(row, categories), axis=1)
+
 
 # Output the categorized data
 print(transactions)  # For testing, show first few rows
