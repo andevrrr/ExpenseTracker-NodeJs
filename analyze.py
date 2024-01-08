@@ -13,13 +13,13 @@ def categorize_business_with_gpt(business_name, transaction_type, payer, categor
     f"'{payer}' is the payer, '{transaction_type}' is the transaction type, and '{business_name}' is the receiver. "
     f"This is a bank statement from a user where you can see their purchases, transfers, etc. "
     f"To categorize a transaction, consider transactions with both a name and surname in both the receiver and payer fields. "
-    f"Determine the most appropriate category for this transaction from the following list: {', '.join(categories)}."
+    f"Determine the most appropriate category for this transaction from the following list: {', '.join(categories)}. Answer in just one of the categories from the list."
 )
 
 
     try:
         response = openai.Completion.create(
-            model="text-davinci-003",  # Use the latest available model
+            model="gpt-3.5-turbo-instruct",  # Use the latest available model
             prompt=prompt,
             max_tokens=60
         )
