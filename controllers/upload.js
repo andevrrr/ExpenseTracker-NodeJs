@@ -7,7 +7,7 @@ exports.postUploadFile = (req, res) => {
     exec(`python3 ./python/categorize.py ${filePath}`, (error, stdout, stderr) => {
         if (error) {
             console.error(`exec error: ${error}`);
-            return res.status(500).send('Error processing file.');
+            return res.status(500).send(`Error processing file: ${error.message}`);
         }
         if (stderr) {
             console.error(`stderr: ${stderr}`);
