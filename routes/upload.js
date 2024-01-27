@@ -1,9 +1,11 @@
 const express = require("express");
 const multer = require('multer');
-const upload = multer({ dest: 'uploads/' }); // Configures multer to save files in /uploads directory
+const upload = multer({ dest: 'uploads/' });
 const router = express.Router();
-const controller = require('../controllers/upload'); // Make sure to create this file in /controllers
+const controllerUpload = require('../controllers/upload');
+const controller = require('../controllers/calls');
 
-router.post("/upload", upload.single('file'), controller.postUploadFile);
+router.get("/get", controller.getData);
+router.post("/upload", upload.single('file'), controllerUpload.postUploadFile);
 
 module.exports = router;
