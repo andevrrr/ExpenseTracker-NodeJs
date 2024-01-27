@@ -5,10 +5,10 @@
     "payer": "Maksaja",
     "amount": "Summa",
     "transactionType": "Tapahtumalaji",
-    "category": "Transportation"
+    "category": "Category: Groceries"
   },
   {
-    "paymentDate": "27.11.2023",
+    "paymentDate": "2023-11-27",
     "businessName": "ANTON KUCHERENKO",
     "payer": "Prisma Hämeenkatu Tampere",
     "amount": "1000",
@@ -16,39 +16,39 @@
     "category": "Transportation"
   },
   {
-    "paymentDate": "27.11.2023",
+    "paymentDate": "2023-11-27",
     "businessName": "TELIA FINLAND OYJ",
     "payer": "ANTON KUCHERENKO",
-    "amount": "-15,03",
+    "amount": "-15.03",
     "transactionType": "TILISIIRTO",
     "category": "Category: Utilities"
   },
   {
-    "paymentDate": "27.11.2023",
+    "paymentDate": "2023-11-27",
     "businessName": "TELIA FINLAND OYJ",
     "payer": "ANTON KUCHERENKO",
-    "amount": "-29,76",
+    "amount": "-29.76",
     "transactionType": "TILISIIRTO",
-    "category": "Transportation"
+    "category": "Groceries"
   },
   {
-    "paymentDate": "25.11.2023",
+    "paymentDate": "2023-11-25",
     "businessName": "Yango",
     "payer": "ANTON KUCHERENKO",
-    "amount": "-5,5",
+    "amount": "-5.5",
     "transactionType": "KORTTIOSTO",
     "category": "Category: Dining"
   },
   {
-    "paymentDate": "21.11.2023",
+    "paymentDate": "2023-11-21",
     "businessName": "TELIA FINLAND OYJ",
     "payer": "ANTON KUCHERENKO",
-    "amount": "-14,99",
+    "amount": "-14.99",
     "transactionType": "TILISIIRTO",
-    "category": "Category: Utilities"
+    "category": "Subscriptions and Memberships"
   },
   {
-    "paymentDate": "13.11.2023",
+    "paymentDate": "2023-11-13",
     "businessName": "Anton Kucherenko",
     "payer": "GUSARINA SOFIIA",
     "amount": "14",
@@ -56,7 +56,7 @@
     "category": "Category: Transfers"
   },
   {
-    "paymentDate": "6.11.2023",
+    "paymentDate": "2023-11-6",
     "businessName": "X-Group Asunnot Oy, vuokrat",
     "payer": "KUCHERENKO ANTON",
     "amount": "-625",
@@ -64,55 +64,55 @@
     "category": "Housing and Leasing"
   },
   {
-    "paymentDate": "6.11.2023",
+    "paymentDate": "2023-11-6",
     "businessName": "GoGo Liikuntakeskus Oy",
     "payer": "KUCHERENKO ANTON",
     "amount": "-60",
     "transactionType": "E-LASKU",
-    "category": "Fitness"
+    "category": "Category: Fitness"
   },
   {
-    "paymentDate": "3.11.2023",
+    "paymentDate": "2023-11-3",
     "businessName": "K-Supermarket Hameenkatu",
     "payer": "ANTON KUCHERENKO",
-    "amount": "-0,24",
+    "amount": "-0.24",
+    "transactionType": "KORTTIOSTO",
+    "category": "Category: Groceries"
+  },
+  {
+    "paymentDate": "2023-11-3",
+    "businessName": "K-Supermarket Hameenkatu",
+    "payer": "ANTON KUCHERENKO",
+    "amount": "-40.53",
     "transactionType": "KORTTIOSTO",
     "category": "Groceries"
   },
   {
-    "paymentDate": "3.11.2023",
-    "businessName": "K-Supermarket Hameenkatu",
-    "payer": "ANTON KUCHERENKO",
-    "amount": "-40,53",
-    "transactionType": "KORTTIOSTO",
-    "category": "Category: Groceries"
-  },
-  {
-    "paymentDate": "2.11.2023",
+    "paymentDate": "2023-11-2",
     "businessName": "AWS EMEA",
     "payer": "ANTON KUCHERENKO",
-    "amount": "-2,88",
+    "amount": "-2.88",
     "transactionType": "KORTTIOSTO",
-    "category": "Category: Groceries"
+    "category": "Category: Other"
   },
   {
-    "paymentDate": "2.11.2023",
+    "paymentDate": "2023-11-2",
     "businessName": "APPLE.COM/BILL",
     "payer": "ANTON KUCHERENKO",
-    "amount": "-9,99",
+    "amount": "-9.99",
     "transactionType": "KORTTIOSTO",
-    "category": "Category: E-Commerce"
+    "category": "Subscriptions and Memberships"
   },
   {
-    "paymentDate": "1.11.2023",
+    "paymentDate": "2023-11-1",
     "businessName": "Anton Kucherenko",
     "payer": "MobilePay Walid Lachhab",
     "amount": "70",
     "transactionType": "TILISIIRTO",
-    "category": "Category: Transfers"
+    "category": "Travel and Accommodation"
   },
   {
-    "paymentDate": "1.11.2023",
+    "paymentDate": "2023-11-1",
     "businessName": "Anton Kucherenko",
     "payer": "MobilePay Walid Lachhab",
     "amount": "9",

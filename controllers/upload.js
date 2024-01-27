@@ -60,11 +60,17 @@ exports.postUploadFile = (req, res) => {
       })
     )
     .on("data", (data) => {
+      // Format paymentDate to YYYY-MM-DD
+      let formattedDate = data.Maksupäivä.split(".").reverse().join("-");
+
+      // Convert amount to use period as decimal separator and adjust the sign if necessary
+      let formattedAmount = data.Summa.replace(",", ".");
+
       const transaction = {
-        paymentDate: data.Maksupäivä,
+        paymentDate: formattedDate,
         businessName: data.Saajan_nimi,
         payer: data.Maksaja,
-        amount: data.Summa,
+        amount: formattedAmount,
         transactionType: data.Tapahtumalaji,
       };
       transactions.push(transaction);
