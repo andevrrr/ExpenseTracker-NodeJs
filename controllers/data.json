@@ -1,17 +1,9 @@
 [
   {
-    "paymentDate": "Maksupäivä",
-    "businessName": "Saajan nimi",
-    "payer": "Maksaja",
-    "amount": "Summa",
-    "transactionType": "Tapahtumalaji",
-    "category": "Category: Groceries"
-  },
-  {
     "paymentDate": "2023-11-27",
     "businessName": "ANTON KUCHERENKO",
     "payer": "Prisma Hämeenkatu Tampere",
-    "amount": "1000",
+    "amount": "500",
     "transactionType": "KÄTEISTALLETUS KORTILLA",
     "category": "Transportation"
   },
@@ -19,9 +11,9 @@
     "paymentDate": "2023-11-27",
     "businessName": "TELIA FINLAND OYJ",
     "payer": "ANTON KUCHERENKO",
-    "amount": "-15.03",
+    "amount": "-25.03",
     "transactionType": "TILISIIRTO",
-    "category": "Category: Utilities"
+    "category": "Utilities"
   },
   {
     "paymentDate": "2023-11-27",
@@ -37,7 +29,7 @@
     "payer": "ANTON KUCHERENKO",
     "amount": "-5.5",
     "transactionType": "KORTTIOSTO",
-    "category": "Category: Dining"
+    "category": "Dining"
   },
   {
     "paymentDate": "2023-11-21",
@@ -53,7 +45,7 @@
     "payer": "GUSARINA SOFIIA",
     "amount": "14",
     "transactionType": "TILISIIRTO",
-    "category": "Category: Transfers"
+    "category": "Transfers"
   },
   {
     "paymentDate": "2023-11-6",
@@ -69,7 +61,7 @@
     "payer": "KUCHERENKO ANTON",
     "amount": "-60",
     "transactionType": "E-LASKU",
-    "category": "Category: Fitness"
+    "category": "Fitness"
   },
   {
     "paymentDate": "2023-11-3",
@@ -77,7 +69,7 @@
     "payer": "ANTON KUCHERENKO",
     "amount": "-0.24",
     "transactionType": "KORTTIOSTO",
-    "category": "Category: Groceries"
+    "category": "Groceries"
   },
   {
     "paymentDate": "2023-11-3",
@@ -93,7 +85,7 @@
     "payer": "ANTON KUCHERENKO",
     "amount": "-2.88",
     "transactionType": "KORTTIOSTO",
-    "category": "Category: Other"
+    "category": "Other"
   },
   {
     "paymentDate": "2023-11-2",
