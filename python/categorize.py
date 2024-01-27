@@ -9,7 +9,7 @@ if len(sys.argv) < 2:
     sys.exit(1)
 
 file_path = sys.argv[1]
-
+print(file_path)
 # Load the environment variables
 load_dotenv()
 openai.api_key = os.getenv('OPENAI_API_KEY')
