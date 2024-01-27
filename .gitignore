@@ -4,3 +4,4 @@ images/
 .env
 export.csv
 uploads/
+./controllers/data.json

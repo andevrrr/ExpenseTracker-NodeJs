@@ -1,0 +1,122 @@
+[
+  {
+    "paymentDate": "Maksupäivä",
+    "businessName": "Saajan nimi",
+    "payer": "Maksaja",
+    "amount": "Summa",
+    "transactionType": "Tapahtumalaji",
+    "category": "Based on the provided details, this transaction would fall under the \"Other\" category. The transaction type, receiver, and amount are not specific enough to determine a more specific spending category."
+  },
+  {
+    "paymentDate": "27.11.2023",
+    "businessName": "ANTON KUCHERENKO",
+    "payer": "Prisma Hämeenkatu Tampere",
+    "amount": "1000",
+    "transactionType": "KÄTEISTALLETUS KORTILLA",
+    "category": "Transportation"
+  },
+  {
+    "paymentDate": "27.11.2023",
+    "businessName": "TELIA FINLAND OYJ",
+    "payer": "ANTON KUCHERENKO",
+    "amount": "-15,03",
+    "transactionType": "TILISIIRTO",
+    "category": "Transportation"
+  },
+  {
+    "paymentDate": "27.11.2023",
+    "businessName": "TELIA FINLAND OYJ",
+    "payer": "ANTON KUCHERENKO",
+    "amount": "-29,76",
+    "transactionType": "TILISIIRTO",
+    "category": "Groceries"
+  },
+  {
+    "paymentDate": "25.11.2023",
+    "businessName": "Yango",
+    "payer": "ANTON KUCHERENKO",
+    "amount": "-5,5",
+    "transactionType": "KORTTIOSTO",
+    "category": "Category: Transportation"
+  },
+  {
+    "paymentDate": "21.11.2023",
+    "businessName": "TELIA FINLAND OYJ",
+    "payer": "ANTON KUCHERENKO",
+    "amount": "-14,99",
+    "transactionType": "TILISIIRTO",
+    "category": "The transaction falls under the category of Utilities."
+  },
+  {
+    "paymentDate": "13.11.2023",
+    "businessName": "Anton Kucherenko",
+    "payer": "GUSARINA SOFIIA",
+    "amount": "14",
+    "transactionType": "TILISIIRTO",
+    "category": "Based on the transaction details provided, the most fitting category for this transaction would be \"Transfers\". This is because the transaction is a \"tilisiirto\" or bank transfer, with the amount being sent from one person (GUSARINA SOFIIA) to another (Ant"
+  },
+  {
+    "paymentDate": "6.11.2023",
+    "businessName": "X-Group Asunnot Oy, vuokrat",
+    "payer": "KUCHERENKO ANTON",
+    "amount": "-625",
+    "transactionType": "E-LASKU",
+    "category": "Housing and Leasing"
+  },
+  {
+    "paymentDate": "6.11.2023",
+    "businessName": "GoGo Liikuntakeskus Oy",
+    "payer": "KUCHERENKO ANTON",
+    "amount": "-60",
+    "transactionType": "E-LASKU",
+    "category": "Category: Fitness"
+  },
+  {
+    "paymentDate": "3.11.2023",
+    "businessName": "K-Supermarket Hameenkatu",
+    "payer": "ANTON KUCHERENKO",
+    "amount": "-0,24",
+    "transactionType": "KORTTIOSTO",
+    "category": "Groceries"
+  },
+  {
+    "paymentDate": "3.11.2023",
+    "businessName": "K-Supermarket Hameenkatu",
+    "payer": "ANTON KUCHERENKO",
+    "amount": "-40,53",
+    "transactionType": "KORTTIOSTO",
+    "category": "Category: Groceries"
+  },
+  {
+    "paymentDate": "2.11.2023",
+    "businessName": "AWS EMEA",
+    "payer": "ANTON KUCHERENKO",
+    "amount": "-2,88",
+    "transactionType": "KORTTIOSTO",
+    "category": "Groceries"
+  },
+  {
+    "paymentDate": "2.11.2023",
+    "businessName": "APPLE.COM/BILL",
+    "payer": "ANTON KUCHERENKO",
+    "amount": "-9,99",
+    "transactionType": "KORTTIOSTO",
+    "category": "Category: E-Commerce"
+  },
+  {
+    "paymentDate": "1.11.2023",
+    "businessName": "Anton Kucherenko",
+    "payer": "MobilePay Walid Lachhab",
+    "amount": "70",
+    "transactionType": "TILISIIRTO",
+    "category": "Category: Transfers"
+  },
+  {
+    "paymentDate": "1.11.2023",
+    "businessName": "Anton Kucherenko",
+    "payer": "MobilePay Walid Lachhab",
+    "amount": "9",
+    "transactionType": "TILISIIRTO",
+    "category": "Transportation"
+  }
+]
