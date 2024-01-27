@@ -5,7 +5,7 @@
     "payer": "Maksaja",
     "amount": "Summa",
     "transactionType": "Tapahtumalaji",
-    "category": "Based on the provided details, this transaction would fall under the \"Other\" category. The transaction type, receiver, and amount are not specific enough to determine a more specific spending category."
+    "category": "Transportation"
   },
   {
     "paymentDate": "27.11.2023",
@@ -21,7 +21,7 @@
     "payer": "ANTON KUCHERENKO",
     "amount": "-15,03",
     "transactionType": "TILISIIRTO",
-    "category": "Transportation"
+    "category": "Category: Utilities"
   },
   {
     "paymentDate": "27.11.2023",
@@ -29,7 +29,7 @@
     "payer": "ANTON KUCHERENKO",
     "amount": "-29,76",
     "transactionType": "TILISIIRTO",
-    "category": "Groceries"
+    "category": "Transportation"
   },
   {
     "paymentDate": "25.11.2023",
@@ -37,7 +37,7 @@
     "payer": "ANTON KUCHERENKO",
     "amount": "-5,5",
     "transactionType": "KORTTIOSTO",
-    "category": "Category: Transportation"
+    "category": "Category: Dining"
   },
   {
     "paymentDate": "21.11.2023",
@@ -45,7 +45,7 @@
     "payer": "ANTON KUCHERENKO",
     "amount": "-14,99",
     "transactionType": "TILISIIRTO",
-    "category": "The transaction falls under the category of Utilities."
+    "category": "Category: Utilities"
   },
   {
     "paymentDate": "13.11.2023",
@@ -53,7 +53,7 @@
     "payer": "GUSARINA SOFIIA",
     "amount": "14",
     "transactionType": "TILISIIRTO",
-    "category": "Based on the transaction details provided, the most fitting category for this transaction would be \"Transfers\". This is because the transaction is a \"tilisiirto\" or bank transfer, with the amount being sent from one person (GUSARINA SOFIIA) to another (Ant"
+    "category": "Category: Transfers"
   },
   {
     "paymentDate": "6.11.2023",
@@ -69,7 +69,7 @@
     "payer": "KUCHERENKO ANTON",
     "amount": "-60",
     "transactionType": "E-LASKU",
-    "category": "Category: Fitness"
+    "category": "Fitness"
   },
   {
     "paymentDate": "3.11.2023",
@@ -93,7 +93,7 @@
     "payer": "ANTON KUCHERENKO",
     "amount": "-2,88",
     "transactionType": "KORTTIOSTO",
-    "category": "Groceries"
+    "category": "Category: Groceries"
   },
   {
     "paymentDate": "2.11.2023",
