@@ -28,3 +28,14 @@ exports.updateCategory = (req, res) => {
     res.status(404).send("Session or transaction not found.");
   }
 };
+
+exports.deleteSession = (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.log("Session deletion error:", err);
+      res.status(500).send("Could not delete the session.");
+    } else {
+      res.json({ message: "Session deleted successfully." });
+    }
+  });
+};
