@@ -85,18 +85,16 @@ exports.postUploadFile = (req, res) => {
         categorizedTransactions.push(transaction);
       }
 
-      fs.writeFile(
-        outputFilePath,
-        JSON.stringify(categorizedTransactions, null, 2),
-        (err) => {
-          if (err) {
-            console.error("Failed to save categorized transactions:", err);
-            return res.status(500).send("Failed to process the file.");
-          }
-
-          console.log("Categorized transactions saved successfully.");
-          res.json(categorizedTransactions); // Respond with the categorized transactions
+      req.session.transactions = categorizedTransactions;
+      req.session.save((err) => {
+        if (err) {
+          console.error("Session save error:", err);
+          return res.status(500).send("Internal server error");
         }
-      );
+        console.log("Session ID:", req.sessionID);
+
+        console.log("Categorized transactions stored in session.");
+        res.json(categorizedTransactions);
+      });
     });
 };

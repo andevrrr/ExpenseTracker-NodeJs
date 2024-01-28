@@ -1,18 +1,33 @@
-const express = require('express')
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
 const app = express();
+const session = require("express-session");
+require("dotenv").config();
+const router = require("./routes/upload");
 
-// Enable CORS for all routes
-app.use(cors());
-const port = 3000
+app.use(
+  cors({
+    origin: "http://localhost:3001",
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const router = require("./routes/upload");
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true,
+    cookie: { secure: false },
+  })
+);
 
 app.use(router);
 
+const port = 3000;
+
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});

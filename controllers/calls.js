@@ -1,10 +1,8 @@
-const fs = require("fs");
-
 exports.getData = (req, res) => {
-  fs.readFile("./controllers/data.json", function (err, data) {
-    if (err) throw err;
-    const bankStatement = JSON.parse(data);
-    //console.log(bankStatement);
-    res.json(bankStatement);
-  });
+  if (req.session.transactions) {
+    res.json(req.session.transactions);
+  } else {
+    console.log("not available");
+    res.status(404).send("No data available");
+  }
 };
