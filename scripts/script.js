@@ -15,7 +15,7 @@ const categorizeTransaction = async (transaction, categories) => {
       ", "
     )}.
 
-    If the transaction details are insufficient to determine a specific category, especially for ambiguous entries like transfers or generic payments, please indicate it as "Other". Ensure to choose the most fitting category based on the Finnish context.
+    If the transaction details are insufficient to determine a specific category, especially for ambiguous entries like transfers or generic payments, please indicate it as "Other". Ensure to choose the most fitting category based on the Finnish context. You answer should be just a category.
     `.trim();
 
   try {
