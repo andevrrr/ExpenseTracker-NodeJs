@@ -7,5 +7,7 @@ const controller = require("../controllers/calls");
 
 router.post("/upload", upload.single("file"), controllerUpload.postUploadFile);
 router.get("/get", controller.getData);
+router.post('/updateCategory', controller.updateCategory);
+router.get('/deleteSession', controller.deleteSession);
 
 module.exports = router;
