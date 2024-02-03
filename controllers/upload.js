@@ -1,12 +1,10 @@
 const fs = require("fs");
 const csv = require("csv-parser");
-const path = require("path");
 const categorizeTransaction = require("../scripts/script.js");
-
-const outputFilePath = path.join(__dirname, "data.json");
 
 exports.postUploadFile = (req, res) => {
   const filePath = req.file.path;
+  req.session.filePath = filePath;
   const outcome = [
     "Transportation",
     "Subscriptions",

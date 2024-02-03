@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 exports.getData = (req, res) => {
   if (req.session.transactions) {
     res.json(req.session.transactions);
@@ -50,12 +52,19 @@ exports.updateCategory = (req, res) => {
 };
 
 exports.deleteSession = (req, res) => {
-  req.session.destroy((err) => {
-    if (err) {
-      console.log("Session deletion error:", err);
-      res.status(500).send("Could not delete the session.");
-    } else {
-      res.json({ message: "Session deleted successfully." });
-    }
-  });
+  if (req.session.filePath) {
+    fs.unlink(req.session.filePath, (err) => {
+      if (err) {
+        console.error("File deletion error:", err);
+      }
+      req.session.destroy((sessionErr) => {
+        if (sessionErr) {
+          console.error("Session deletion error:", sessionErr);
+          return res.status(500).send("Could not delete the session.");
+        } else {
+          res.json({ message: "Session and file deleted successfully." });
+        }
+      });
+    });
+  }
 };
