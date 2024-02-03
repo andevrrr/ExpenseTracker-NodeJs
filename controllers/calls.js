@@ -1,5 +1,4 @@
 exports.getData = (req, res) => {
-  console.log(req.session.transactions);
   if (req.session.transactions) {
     res.json(req.session.transactions);
   } else {
@@ -13,8 +12,9 @@ exports.updateCategory = (req, res) => {
 
   if (req.session.transactions) {
     const transactions = req.session.transactions.map((transaction) => {
+      const formattedPaymentDate = transaction.paymentDate.split("T")[0];
       if (
-        transaction.paymentDate === paymentDate &&
+        transaction.paymentDate === formattedPaymentDate &&
         transaction.businessName === businessName
       ) {
         return { ...transaction, category: newCategory };
