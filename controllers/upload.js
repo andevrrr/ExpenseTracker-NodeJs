@@ -76,12 +76,15 @@ exports.postUploadFile = (req, res) => {
       transactions.push(transaction);
     })
     .on("end", async () => {
+      let transactionId = 0;
       const categorizedTransactions = [];
       for (let transaction of transactions) {
+        transaction.id = ++transactionId;
         transaction.category = await categorizeTransaction(
           transaction,
           categories
         );
+
         categorizedTransactions.push(transaction);
       }
 
