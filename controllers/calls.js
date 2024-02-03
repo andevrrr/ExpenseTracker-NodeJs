@@ -8,20 +8,44 @@ exports.getData = (req, res) => {
 };
 
 exports.updateCategory = (req, res) => {
-  const { id, newCategory } = req.body;
+  const { id, categoryTitle, newCategory } = req.body;
 
   if (req.session.transactions) {
-    const transactions = req.session.transactions.map((transaction) => {
-      if (transaction.id === id) {
-        return { ...transaction, category: newCategory };
-      }
-      return transaction;
-    });
-
-    req.session.transactions = transactions;
-    res.json({ message: "Category updated successfully." });
+    let updated = false;
+    console.log(req.session.transactions);
+    console.log(req.session.transactions.outcomeCategories);
+    if (
+      categoryTitle === "outcome" &&
+      req.session.transactions.outcomeCategories
+    ) {
+      req.session.transactions.outcomeCategories =
+        req.session.transactions.outcomeCategories.map((transaction) => {
+          if (transaction.id === id) {
+            updated = true;
+            return { ...transaction, category: newCategory };
+          }
+          return transaction;
+        });
+    } else if (
+      categoryTitle === "income" &&
+      req.session.transactions.incomeCategories
+    ) {
+      req.session.transactions.incomeCategories =
+        req.session.transactions.incomeCategories.map((transaction) => {
+          if (transaction.id === id) {
+            updated = true;
+            return { ...transaction, category: newCategory };
+          }
+          return transaction;
+        });
+    }
+    if (updated) {
+      res.json({ message: "Category updated successfully." });
+    } else {
+      res.status(404).send("Transaction not found or invalid category title.");
+    }
   } else {
-    res.status(404).send("Session or transaction not found.");
+    res.status(404).send("Session or transactions not found.");
   }
 };
 

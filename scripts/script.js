@@ -51,7 +51,7 @@ const cleanCategory = (inputCategory, categories) => {
 
   const foundCategory = words.find((word) => categories.includes(word));
 
-  return foundCategory || null;
+  return foundCategory || "Other";
 };
 
 module.exports = categorizeTransaction;
