@@ -7,7 +7,7 @@ const outputFilePath = path.join(__dirname, "data.json");
 
 exports.postUploadFile = (req, res) => {
   const filePath = req.file.path;
-  const categories = [
+  const outcome = [
     "Transportation",
     "Subscriptions and Memberships",
     "Housing and Leasing",
@@ -40,10 +40,23 @@ exports.postUploadFile = (req, res) => {
     "Music", // Musiikki
     "Sports", // Urheilu
     "Outdoor", // Ulkoilu
-    "Else",
+    "Other",
   ];
 
-  const transactions = [];
+  const income = [
+    "Salary/Wages",
+    "Deposits",
+    "Transfers",
+    "Mobile Payment",
+    "Interest",
+    "Dividends",
+    "Gifts",
+    "Rental Income",
+    "Other",
+  ];
+
+  const incomeTransactions = [];
+  const outcomeTransactions = [];
 
   fs.createReadStream(filePath)
     .pipe(
@@ -82,18 +95,27 @@ exports.postUploadFile = (req, res) => {
         transaction.id = ++transactionId;
 
         if (parseFloat(transaction.amount) > 0) {
-          transaction.category = "Other";
-        } else {
+          // Categorize positive amount as income
           transaction.category = await categorizeTransaction(
             transaction,
-            categories
+            income
           );
+          incomeTransactions.push(transaction);
+        } else {
+          // Categorize negative amount as outcome
+          transaction.category = await categorizeTransaction(
+            transaction,
+            outcome
+          );
+          outcomeTransactions.push(transaction);
         }
 
         categorizedTransactions.push(transaction);
       }
 
-      req.session.transactions = categorizedTransactions;
+      req.session.incomeTransactions = incomeTransactions;
+      req.session.outcomeTransactions = outcomeTransactions;
+
       req.session.save((err) => {
         if (err) {
           console.error("Session save error:", err);
