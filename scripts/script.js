@@ -15,7 +15,7 @@ const categorizeTransaction = async (transaction, categories) => {
       ", "
     )}.
 
-    If the transaction details are insufficient to determine a specific category, especially for ambiguous entries like transfers or generic payments, please indicate it as "Other". Ensure to choose the most fitting category based on the Finnish context. Your answer must strictly be the name of the category and nothing else.
+    If the transaction details are insufficient to determine a specific category, especially for ambiguous entries like transfers or generic payments, please indicate it as "Other". Ensure to choose the most fitting category based on the Finnish context.
     `.trim();
 
   try {
@@ -32,11 +32,26 @@ const categorizeTransaction = async (transaction, categories) => {
         },
       }
     );
-    return response.data.choices[0].text.trim();
+    const category = response.data.choices[0].text.trim();
+    console.log("Before the function:" + category);
+    const cleanedCategory = cleanCategory(category, categories);
+    console.log("After" + cleanedCategory);
+    return cleanedCategory;
   } catch (error) {
     console.error("An error occurred:", error);
     return "Error: Unable to categorize";
   }
+};
+
+const cleanCategory = (inputCategory, categories) => {
+  const words = inputCategory
+    .replace(/[^\w\s]|_/g, "")
+    .replace(/\s+/g, " ")
+    .split(" ");
+
+  const foundCategory = words.find((word) => categories.includes(word));
+
+  return foundCategory || null;
 };
 
 module.exports = categorizeTransaction;

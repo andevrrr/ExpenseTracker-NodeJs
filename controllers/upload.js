@@ -9,18 +9,19 @@ exports.postUploadFile = (req, res) => {
   const filePath = req.file.path;
   const outcome = [
     "Transportation",
-    "Subscriptions and Memberships",
-    "Housing and Leasing",
+    "Subscriptions",
+    "Memberships",
+    "Housing",
     "Transfers",
     "Groceries", // Ruokakaupat
     "Utilities", // Käyttömenot
     "Dining", // Ruokailu
     "Entertainment", // Viihde
-    "Travel and Accommodation", // Matkustus
+    "Travel", // Matkustus
     "Healthcare", // Terveydenhuolto
     "Fashion", // Muoti
     "Recreation", // Vapaa-aika
-    "Technology and Electronics", // Teknologia
+    "Electronics", // Teknologia
     "Homeware", // Kotitavarat
     "Education", // Koulutus
     "Finance", // Rahoitus
@@ -44,10 +45,10 @@ exports.postUploadFile = (req, res) => {
   ];
 
   const income = [
-    "Salary/Wages",
+    "Salary",
     "Deposits",
     "Transfers",
-    "Mobile Payment",
+    "MobilePay",
     "Interest",
     "Dividends",
     "Gifts",
@@ -57,6 +58,7 @@ exports.postUploadFile = (req, res) => {
 
   const incomeTransactions = [];
   const outcomeTransactions = [];
+  const transactions = [];
 
   fs.createReadStream(filePath)
     .pipe(
@@ -113,8 +115,14 @@ exports.postUploadFile = (req, res) => {
         categorizedTransactions.push(transaction);
       }
 
-      req.session.incomeTransactions = incomeTransactions;
-      req.session.outcomeTransactions = outcomeTransactions;
+      const combinedCategories = {
+        incomeCategories: Array.from(incomeTransactions),
+        outcomeCategories: Array.from(outcomeTransactions),
+      };
+
+      console.log(combinedCategories);
+
+      req.session.transactions = combinedCategories;
 
       req.session.save((err) => {
         if (err) {
