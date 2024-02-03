@@ -8,15 +8,11 @@ exports.getData = (req, res) => {
 };
 
 exports.updateCategory = (req, res) => {
-  const { paymentDate, businessName, newCategory } = req.body;
+  const { id, newCategory } = req.body;
 
   if (req.session.transactions) {
     const transactions = req.session.transactions.map((transaction) => {
-      const formattedPaymentDate = transaction.paymentDate.split("T")[0];
-      if (
-        transaction.paymentDate === formattedPaymentDate &&
-        transaction.businessName === businessName
-      ) {
+      if (transaction.id === id) {
         return { ...transaction, category: newCategory };
       }
       return transaction;
