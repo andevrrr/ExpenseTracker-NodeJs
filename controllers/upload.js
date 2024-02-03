@@ -80,10 +80,15 @@ exports.postUploadFile = (req, res) => {
       const categorizedTransactions = [];
       for (let transaction of transactions) {
         transaction.id = ++transactionId;
-        transaction.category = await categorizeTransaction(
-          transaction,
-          categories
-        );
+
+        if (parseFloat(transaction.amount) > 0) {
+          transaction.category = "Other";
+        } else {
+          transaction.category = await categorizeTransaction(
+            transaction,
+            categories
+          );
+        }
 
         categorizedTransactions.push(transaction);
       }
