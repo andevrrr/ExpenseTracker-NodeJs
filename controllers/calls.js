@@ -9,6 +9,34 @@ exports.getData = (req, res) => {
   }
 };
 
+exports.addCategory = (req, res) => {
+  const { purchase, categoryTitle } = req.body;
+
+  if (req.session.transactions) {
+    if (categoryTitle === "income" || categoryTitle === "outcome") {
+      const categoryList =
+        req.session.transactions[`${categoryTitle}Categories`];
+
+      if (categoryList.length >= 1) {
+        categoryList.splice(1, 0, purchase);
+      } else {
+        categoryList.push(purchase);
+      }
+
+      console.log(categoryList);
+
+      res.json({
+        message: "Purchase added successfully.",
+        categories: categoryList,
+      });
+    } else {
+      res.status(400).send("Invalid category type specified.");
+    }
+  } else {
+    res.status(404).send("Session or transactions not found.");
+  }
+};
+
 exports.updateCategory = (req, res) => {
   const { id, categoryTitle, newCategory } = req.body;
 

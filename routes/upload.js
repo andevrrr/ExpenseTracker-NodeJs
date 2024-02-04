@@ -9,5 +9,6 @@ router.post("/upload", upload.single("file"), controllerUpload.postUploadFile);
 router.get("/get", controller.getData);
 router.post('/updateCategory', controller.updateCategory);
 router.delete('/deleteSession', controller.deleteSession);
+router.post('/addPurchase', controller.addCategory);
 
 module.exports = router;
