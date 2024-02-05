@@ -1,40 +1,36 @@
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
+const router = express.Router();
+const controllerUpload = require("../controllers/upload");
+const controller = require("../controllers/calls");
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, "../uploads"));
   },
-  filename: function (req, file, cb) {
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
     cb(
       null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+      file.fieldname + "-" + uniqueSuffix + path.extname(file.originalname)
     );
   },
 });
 
 const fileFilter = (req, file, cb) => {
-  const filetypes = /csv/;
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  const mimetype = filetypes.test(file.mimetype);
-
-  if (mimetype && extname) {
-    return cb(null, true);
+  if (file.mimetype === "text/csv") {
+    cb(null, true);
   } else {
-    cb("Error: CSV Files Only!");
+    cb(new Error("Only CSV files are allowed!"), false);
   }
 };
 
 const upload = multer({
   storage: storage,
   fileFilter: fileFilter,
-  limits: { fileSize: 1000000 },
+  limits: { fileSize: 1 * 1024 * 1024 }, // 1MB file size limit
 });
-
-const router = express.Router();
-const controllerUpload = require("../controllers/upload");
-const controller = require("../controllers/calls");
 
 router.post("/upload", upload.single("file"), controllerUpload.postUploadFile);
 router.get("/get", controller.getData);
