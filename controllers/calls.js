@@ -1,5 +1,15 @@
 const fs = require("fs");
 
+exports.getSession = (req, res) => {
+  if (req.session) {
+    res.json({ sessionValid: true, message: "Session is valid" });
+  } else {
+    res
+      .status(401)
+      .json({ sessionValid: false, message: "Session is invalid or expired" });
+  }
+};
+
 exports.getData = (req, res) => {
   if (req.session && req.session.transactions) {
     res.json({ transactions: req.session.transactions });
