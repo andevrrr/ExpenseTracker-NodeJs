@@ -23,7 +23,7 @@ const router = require("./routes/upload");
 
 // Security enhancements with Helmet
 app.use(helmet());
-
+app.set('trust proxy', 1);
 // Logging HTTP requests with Morgan
 app.use(morgan("combined"));
 
@@ -52,6 +52,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: {
+      domain: '.budgees.com',
       secure: process.env.NODE_ENV === "production",
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
