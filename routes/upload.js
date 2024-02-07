@@ -38,5 +38,6 @@ router.get("/get", controller.getData);
 router.post("/updateCategory", controller.updateCategory);
 router.delete("/deleteSession", controller.deleteSession);
 router.post("/addPurchase", controller.addCategory);
+router.delete("/deletePurchase/:id", controller.deletePurchase);
 
 module.exports = router;

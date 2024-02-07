@@ -36,7 +36,7 @@ app.use(limiter);
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_ORIGIN,
+    origin: 'http://localhost:3001',
     credentials: true,
   })
 );
@@ -52,7 +52,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: {
-      domain: '.budgees.com',
+     // domain: '.budgees.com',
       secure: process.env.NODE_ENV === "production",
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,

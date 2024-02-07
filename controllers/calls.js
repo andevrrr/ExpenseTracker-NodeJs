@@ -106,3 +106,33 @@ exports.deleteSession = (req, res) => {
     });
   });
 };
+
+exports.deletePurchase = (req, res) => {
+  const { id } = req.params;
+
+  if (!req.session || !req.session.transactions) {
+    return res
+      .status(404)
+      .send({ message: "Session or transactions not found." });
+  }
+
+  const categories = ["incomeCategories", "outcomeCategories"];
+  let found = false;
+
+  categories.forEach((category) => {
+    const index = req.session.transactions[category].findIndex(
+      (purchase) => purchase.id == id
+    );
+
+    if (index !== -1) {
+      req.session.transactions[category].splice(index, 1);
+      found = true;
+    }
+  });
+
+  if (found) {
+    res.json({ message: "Purchase deleted successfully." });
+  } else {
+    res.status(404).send({ message: "Purchase not found." });
+  }
+};
