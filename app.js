@@ -4,7 +4,19 @@ const session = require("express-session");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const rateLimit = require("express-rate-limit");
+const redis = require('redis');
+const RedisStore = require("connect-redis").default
+
 require("dotenv").config();
+
+const client = redis.createClient();
+
+client.on('connect', () => console.log('Redis Client Connected'));
+client.on('error', (err) => console.log('Redis Client Connection Error', err));
+
+(async () => {
+  await client.connect();
+})();
 
 const app = express();
 const router = require("./routes/upload");
@@ -35,11 +47,12 @@ app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 
 app.use(
   session({
+    store: new RedisStore({ client: client }),
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
-      secure: false, // process.env.NODE_ENV
+      secure: process.env.NODE_ENV === "production",
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
     },
@@ -48,7 +61,11 @@ app.use(
 
 app.use(router);
 
-const port = process.env.PORT;
+app.get("/hello", (req, res) => {
+  res.send("Hello World!!!");
+});
+
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
 });
