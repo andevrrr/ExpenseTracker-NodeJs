@@ -33,6 +33,7 @@ const upload = multer({
 });
 
 router.post("/upload", upload.single("file"), controllerUpload.postUploadFile);
+router.get("/getSession", controller.getSession);
 router.get("/get", controller.getData);
 router.post("/updateCategory", controller.updateCategory);
 router.delete("/deleteSession", controller.deleteSession);
