@@ -36,7 +36,7 @@ app.use(limiter);
 
 app.use(
   cors({
-    origin: 'http://localhost:3001',
+    origin: 'https://budgees.com',
     credentials: true,
   })
 );
