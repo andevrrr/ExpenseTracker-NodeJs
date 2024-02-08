@@ -55,7 +55,7 @@ app.use(
      // domain: '.budgees.com',
       secure: process.env.NODE_ENV === "production",
       httpOnly: true,
-      maxAge: 24 * 60 * 60 * 1000,
+      maxAge: 30 * 60 * 1000,
     },
   })
 );
